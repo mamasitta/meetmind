@@ -1,6 +1,7 @@
 from contextlib import asynccontextmanager
 from fastapi import FastAPI
 from app.core.database import engine, Base
+from app.api.meetings_api_route import router as meetings_router
 
 
 
@@ -20,6 +21,10 @@ app = FastAPI(
     version = "0.1.0",
     lifespan = lifespan
 )
+
+# include meetings api router
+app.include_router(meetings_router)
+
 
 @app.get("/health")
 async def health():

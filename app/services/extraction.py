@@ -1,19 +1,19 @@
 import json
-from anthropic import Anthropic
 from app.core.config import settings
 from app.schemas.meeting import MeetingExtraction, ActionItem, Decision, Risk
 from app.prompts.extraction_prompts import ExtractionPrompts
+from anthropic import AsyncAnthropic
 
 
 # One client instance, reused for all requests
-client = Anthropic(api_key=settings.anthropic_api_key)
+client = AsyncAnthropic(api_key=settings.anthropic_api_key)
 
 
 
-def extract_from_transcript(transcript: str) -> MeetingExtraction:
+async def extract_from_transcript(transcript: str) -> MeetingExtraction:
     
     # Call Claude
-    response = client.messages.create(
+    response = await client.messages.create(
         model=settings.claude_model,
         max_tokens=1024,
         messages=[

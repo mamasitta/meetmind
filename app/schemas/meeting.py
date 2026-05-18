@@ -3,6 +3,7 @@ from typing import Optional
 from uuid import UUID
 from datetime import datetime
 
+
 class TranscriptRequest(BaseModel):
     title: str = Field(description="Meeting title")
     transcript: str = Field(description="Full meeting transcript text")
@@ -40,7 +41,7 @@ class Decision(BaseModel):
 class MeetingExtraction(BaseModel):
     summary: str = Field(description="2-3 short sentence summary of meeting")
     action_items: list[ActionItem] = Field(default_factory=list)
-    decigions: list[Decision] = Field(default_factory=list)
+    decisions: list[Decision] = Field(default_factory=list)
     general_risks: list[Risk] = Field(default_factory=list, description="Risks that affect all project/meeting")
     participants: list[str] = Field(default_factory=list, description="Names of people who spoke or attand the meeting")
 
@@ -54,3 +55,4 @@ class MeetingResponse(BaseModel):
 
     class Config:
         from_attributes = True
+

@@ -6,23 +6,9 @@ from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.dialects.postgresql import UUID
 from pgvector.sqlalchemy import Vector
 from app.core.database import Base
+from app.models.associations import decision_risk_association, action_item_risk_association
 
-# Association table for many-to-many relationship between decisions and risks
-# (if a risk can affect multiple decisions)
-decision_risk_association = Table(
-    "decision_risk_association",
-    Base.metadata,
-    mapped_column("decision_id", UUID(as_uuid=True), ForeignKey("decisions.id", ondelete="CASCADE")),
-    mapped_column("risk_id", UUID(as_uuid=True), ForeignKey("risks.id", ondelete="CASCADE")),
-)
 
-# Association table for action_items and risks
-action_item_risk_association = Table(
-    "action_item_risk_association",
-    Base.metadata,
-    mapped_column("action_item_id", UUID(as_uuid=True), ForeignKey("action_items.id", ondelete="CASCADE")),
-    mapped_column("risk_id", UUID(as_uuid=True), ForeignKey("risks.id", ondelete="CASCADE")),
-)
 
 
 class Meeting(Base):
@@ -87,8 +73,8 @@ class Risk(Base):
 
     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
     meeting_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("meetings.id", ondelete="CASCADE"))
-    description: Mapped[str] = mapped_column(Text)
-    related_to: Mapped[Optional[str]] = mapped_column(String(50))  # 'general', 'decision', 'action'
+    description: Mapped[str] = mapped_column(Text, nullable=False)
+    related_to: Mapped[Optional[str]] = mapped_column(Text, nullable=True)  # 'general', 'decision', 'action'
     severity: Mapped[str] = mapped_column(String(20), default="medium")  # low, medium, high
     created_at: Mapped[datetime] = mapped_column(DateTime(timezone=True), server_default=func.now())
 

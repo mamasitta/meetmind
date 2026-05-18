@@ -1,13 +1,14 @@
 from sqlalchemy.ext.asyncio import AsyncSession
-from sqlalchemy import select
 from uuid import UUID
-from app.models.meeting import Meeting, ActionItem as ActionItemModel
-from app.schemas.meeting import TranscriptRequest, MeetingExtraction
+from app.models.meeting import Meeting, ActionItem as ActionItemModel, Risk, Decision
+from app.schemas.meeting import TranscriptRequest
 from app.services.extraction import extract_from_transcript
+from sqlalchemy.orm import selectinload
+from app.schemas.meeting import MeetingExtraction
 
 
-async def create_meeting(db: AsyncSession, request: TranscriptRequest) -> Meeting:
-    extraction = extract_from_transcript(request.transcript)
+async def create_meeting(db: AsyncSession, request: TranscriptRequest) -> tuple[Meeting, MeetingExtraction]:
+    extraction = await extract_from_transcript(request.transcript)
     
     # Create meeting
     meeting = Meeting(
@@ -16,6 +17,7 @@ async def create_meeting(db: AsyncSession, request: TranscriptRequest) -> Meetin
         summary=extraction.summary,
         participants=extraction.participants,
     )
+    
     db.add(meeting)
     await db.flush()
     
@@ -30,7 +32,7 @@ async def create_meeting(db: AsyncSession, request: TranscriptRequest) -> Meetin
     
     # Save action items with their risks
     for item in extraction.action_items:
-        action_item = ActionItem(
+        action_item = ActionItemModel(
             meeting_id=meeting.id,
             description=item.description,
             owner=item.owner,
@@ -48,7 +50,7 @@ async def create_meeting(db: AsyncSession, request: TranscriptRequest) -> Meetin
                 severity=risk.severity,
             )
             db.add(action_risk)
-            action_item.risks.append(action_risk)
+            
     
     # Save decisions with their risks
     for decision in extraction.decisions:
@@ -68,12 +70,8 @@ async def create_meeting(db: AsyncSession, request: TranscriptRequest) -> Meetin
                 severity=risk.severity,
             )
             db.add(decision_risk)
-            decision_obj.risks.append(decision_risk)
 
-    # Attach extraction to meeting object so the route can return it for API responce
-    meeting.extraction = extraction
-
-    return meeting
+    return meeting, extraction
 
 
 async def get_meeting_with_all_data(db: AsyncSession, meeting_id: UUID) -> Meeting | None:
@@ -81,7 +79,7 @@ async def get_meeting_with_all_data(db: AsyncSession, meeting_id: UUID) -> Meeti
         Meeting,
         meeting_id,
         options=[
-            selectinload(Meeting.action_items).selectinload(ActionItem.risks),
+            selectinload(Meeting.action_items).selectinload(ActionItemModel.risks),
             selectinload(Meeting.decisions).selectinload(Decision.risks),
             selectinload(Meeting.risks),
         ]

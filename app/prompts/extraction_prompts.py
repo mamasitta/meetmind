@@ -123,39 +123,39 @@ Carol: I'll be on vacation next week.
 </example_transcript>
 
 <example_good_output>
-{
+{{
     "summary": "Team agreed to complete the login page by Friday, with Bob handling frontend work and selecting option B for authentication flow, while noting API rate limit concerns and Carol's upcoming vacation.",
     "action_items": [
-        {
+        {{
             "description": "Finish frontend work for login page",
             "owner": "Bob",
             "due_date": "Friday",
             "priority": "high",
             "risks": []
-        }
+        }}
     ],
     "decisions": [
-        {
+        {{
             "description": "Use option B for authentication flow",
             "made_by": "Alice",
             "risks": [
-                {
+                {{
                     "description": "API rate limits may slow down authentication",
                     "related_to": "decision: Use option B for authentication flow",
                     "severity": "medium"
-                }
+                }}
             ]
-        }
+        }}
     ],
     "general_risks": [
-        {
+        {{
             "description": "Team member will be on vacation next week",
             "related_to": "general",
             "severity": "low"
-        }
+        }}
     ],
     "participants": ["Alice", "Bob", "Carol"]
-}
+}}
 </example_good_output>
 
 <example_transcript>
@@ -168,27 +168,27 @@ Alice: Good point, that's a critical risk.
 </example_transcript>
 
 <example_good_output>
-{
+{{
     "summary": "Bob assigned to deploy API by Friday, with identified risk of database migration breaking production.",
     "action_items": [
-        {
+        {{
             "description": "Deploy the API",
             "owner": "Bob",
             "due_date": "Friday",
             "priority": "high",
             "risks": [
-                {
+                {{
                     "description": "Database migration could break production",
                     "related_to": "action: Deploy the API",
                     "severity": "high"
-                }
+                }}
             ]
-        }
+        }}
     ],
     "decisions": [],
     "general_risks": [],
     "participants": ["Alice", "Bob"]
-}
+}}
 </example_good_output>
 
 <example_transcript>
@@ -201,13 +201,13 @@ Alice: Let's table this and decide next week.
 </example_transcript>
 
 <example_good_output>
-{
+{{
     "summary": "Team discussed React vs Vue but reached no consensus, deferring decision to next week.",
     "action_items": [],
     "decisions": [],
     "general_risks": [],
     "participants": ["Alice", "Bob"]
-}
+}}
 </example_good_output>
 
 <example_transcript>
@@ -219,13 +219,13 @@ Bob: That would be nice, but not urgent.
 </example_transcript>
 
 <example_good_output>
-{
+{{
     "summary": "Team discussed potential database refactoring as a future nice-to-have.",
     "action_items": [],
     "decisions": [],
     "general_risks": [],
     "participants": ["Alice", "Bob"]
-}
+}}
 </example_good_output>
 
 </examples>
@@ -239,13 +239,13 @@ Alice: Due next Friday, May 20th, and 2026-06-15.
 Bob: I'll handle it.
 ```
 Bad Output (DO NOT DO THIS):
-{
+{{
     "action_items": [
-        {"due_date": "next Friday", "priority": "medium"},
-        {"due_date": "May 20th", "priority": "medium"},
-        {"due_date": "2026-06-15", "priority": "medium"}
+        {{"due_date": "next Friday", "priority": "medium"}},
+        {{"due_date": "May 20th", "priority": "medium"}},
+        {{"due_date": "2026-06-15", "priority": "medium"}}
     ]
-}
+}}
 Problems: Creates duplicate action items, inconsistent date formats
 </bad_example_1>
 
@@ -256,9 +256,9 @@ Alice: Fix the bug with priority critical.
 Bob: OK.
 ```
 Bad Output (DO NOT DO THIS):
-{
-    "action_items": [{"priority": "critical"}]
-}
+{{
+    "action_items": [{{"priority": "critical"}}]
+}}
 Problems: Invalid enum value "critical" - must be "low", "medium", or "high"
 </bad_example_2>
 
@@ -269,9 +269,9 @@ Alice: I might fix the bug tomorrow.
 Bob: OK.
 ```
 Bad Output (DO NOT DO THIS):
-{
-    "action_items": [{"description": "Fix the bug", "owner": "Alice"}]
-}
+{{
+    "action_items": [{{"description": "Fix the bug", "owner": "Alice"}}]
+}}
 Problems: Extracts hypothetical action ("might" indicates uncertainty, not commitment)
 </bad_example_3>
 
@@ -282,9 +282,9 @@ Alice: Blocked by API.
 Bob: Noted.
 ```
 Bad Output (DO NOT DO THIS):
-{
+{{
     "general_risks": []
-}
+}}
 Problems: Missing the risk that was clearly stated
 </bad_example_4>
 
@@ -298,45 +298,45 @@ Problems: Missing the risk that was clearly stated
 <response_format>
 Respond with ONLY valid JSON using the exact structure below. No other text, no markdown formatting (no ```json``` code fences), no explanations, no additional commentary.
 
-{
+{{
     "summary": "",
     "action_items": [
-        {
+        {{
             "description": "",
             "owner": null,
             "due_date": null,
             "priority": "medium",
             "risks": [
-                {
+                {{
                     "description": "",
                     "related_to": null,
                     "severity": "medium"
-                }
+                }}
             ]
-        }
+        }}
     ],
     "decisions": [
-        {
+        {{
             "description": "",
             "made_by": null,
             "risks": [
-                {
+                {{
                     "description": "",
                     "related_to": null,
                     "severity": "medium"
-                }
+                }}
             ]
-        }
+        }}
     ],
     "general_risks": [
-        {
+        {{
             "description": "",
             "related_to": "general",
             "severity": "medium"
-        }
+        }}
     ],
     "participants": []
-}
+}}
 </response_format>
 
 Now analyze the transcript and provide your JSON response:
