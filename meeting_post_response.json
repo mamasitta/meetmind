@@ -1,0 +1,55 @@
+{
+    "id": "a0cc12fa-b7da-4183-a51d-e12cf00f4c95",
+    "title": "Product sync 18 May",
+    "created_at": "2026-05-18T16:04:53.504979Z",
+    "extraction": {
+        "summary": "Team reviewed task statuses, with Bob committing to complete the login page by Thursday and Carol tasked with following up with Stripe support today due to a sandbox outage blocking payment integration testing. The team also decided to remove dark mode from the v1 scope due to time constraints.",
+        "action_items": [
+            {
+                "description": "Finish the login page",
+                "owner": "Bob",
+                "due_date": "Thursday",
+                "priority": "high",
+                "risks": []
+            },
+            {
+                "description": "Follow up with Stripe support regarding the sandbox being down",
+                "owner": "Carol",
+                "due_date": "today",
+                "priority": "high",
+                "risks": [
+                    {
+                        "description": "Stripe API sandbox is down, blocking payment integration testing",
+                        "related_to": "action: Follow up with Stripe support regarding the sandbox being down",
+                        "severity": "high"
+                    }
+                ]
+            }
+        ],
+        "decisions": [
+            {
+                "description": "Remove dark mode feature from v1 scope",
+                "made_by": "Alice",
+                "risks": [
+                    {
+                        "description": "Removing dark mode may disappoint users expecting the feature in v1",
+                        "related_to": "decision: Remove dark mode feature from v1 scope",
+                        "severity": "low"
+                    }
+                ]
+            }
+        ],
+        "general_risks": [
+            {
+                "description": "Stripe API sandbox is down, blocking payment integration testing until resolved",
+                "related_to": "general",
+                "severity": "high"
+            }
+        ],
+        "participants": [
+            "Alice",
+            "Bob",
+            "Carol"
+        ]
+    }
+}
