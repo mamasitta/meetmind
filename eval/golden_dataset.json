@@ -1,0 +1,63 @@
+[
+  {
+    "id": "eval_001_clear_commitments",
+    "description": "Clear action items with owners, one decision, nested risk",
+    "transcript": "Sarah: We need to migrate the database by end of month. Tom: I can lead that, I'll have a plan ready by Wednesday. Sarah: Great. We decided to use PostgreSQL instead of MySQL going forward. Tom: Agreed. One concern — we don't have a staging environment set up yet, that could block the migration.",
+    "expected": {
+      "action_items_min": 1,
+      "action_item_owners": ["Tom"],
+      "decisions_min": 1,
+      "decision_keywords": ["PostgreSQL"],
+      "general_risks_min": 0,
+      "participants": ["Sarah", "Tom"],
+      "summary_min_length": 20
+    }
+  },
+  {
+    "id": "eval_002_no_decisions",
+    "description": "Simple standup — action items only, no decisions, no risks",
+    "transcript": "Manager: Quick standup. Alice what did you do yesterday? Alice: Finished the auth module. Manager: Good. Bob? Bob: Still working on the dashboard, should be done today. Manager: Ok. No blockers? Bob: Nope. Manager: Good, let's sync again tomorrow.",
+    "expected": {
+      "action_items_min": 0,
+      "decisions_min": 0,
+      "general_risks_min": 0,
+      "participants": ["Manager", "Alice", "Bob"],
+      "summary_min_length": 20
+    }
+  },
+  {
+    "id": "eval_003_high_severity_risk",
+    "description": "Critical risk should be extracted as high severity",
+    "transcript": "CEO: We're launching next Friday no matter what. Dev: We still have 3 bugs open. CEO: Ship with known bugs, we'll patch post-launch. Dev: That's risky — users might hit the payment bug, it could break transactions. CEO: Document it. Dev: Ok, I'll write up the known issues doc by Thursday.",
+    "expected": {
+      "action_items_min": 1,
+      "action_item_owners": ["Dev"],
+      "decisions_min": 1,
+      "general_risks_min": 0,
+      "has_high_severity_risk": true,
+      "participants": ["CEO", "Dev"],
+      "summary_min_length": 20
+    }
+  },
+  {
+    "id": "eval_004_no_hypotheticals",
+    "description": "Hypothetical statements should NOT become action items",
+    "transcript": "Alice: We should probably refactor the database someday. Bob: That would be nice, but not urgent. Alice: Maybe we could look into it next quarter.",
+    "expected": {
+      "action_items_max": 0,
+      "decisions_max": 0,
+      "participants": ["Alice", "Bob"],
+      "summary_min_length": 10
+    }
+  },
+  {
+    "id": "eval_005_no_false_consensus",
+    "description": "Disagreement without resolution should not produce a decision",
+    "transcript": "Alice: Let's use React. Bob: I strongly disagree. Vue is more performant. Alice: Let's table this and decide next week.",
+    "expected": {
+      "decisions_max": 0,
+      "participants": ["Alice", "Bob"],
+      "summary_min_length": 10
+    }
+  }
+]

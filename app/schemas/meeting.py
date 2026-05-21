@@ -1,12 +1,24 @@
-from pydantic import BaseModel, Field
-from typing import Optional
+from pydantic import BaseModel, Field, field_validator
+from typing import Optional, Literal
 from uuid import UUID
 from datetime import datetime
+
+PriorityLevel = Literal["low", "medium", "high"]
+SeverityLevel = Literal["low", "medium", "high"]
 
 
 class TranscriptRequest(BaseModel):
     title: str = Field(description="Meeting title")
     transcript: str = Field(description="Full meeting transcript text")
+
+
+    @field_validator("transcript")
+    @classmethod
+    def transcript_not_empty(cls, v: str) -> str:
+        if not v or not v.strip():
+            raise ValueError("Transcript cannot be empty or whitespace only")
+        return v
+
 
     class Config:
         json_schema_extra = {
@@ -21,14 +33,14 @@ class TranscriptRequest(BaseModel):
 class Risk(BaseModel):
     description: str = Field(description="Potential problem or blocker identified")
     related_to: Optional[str] = Field(None, description="What this risk related to: 'decision: <description>' or 'action: <description>' or 'general'")
-    severity: str = Field(default="medium", description="low, medium or high")
+    severity: SeverityLevel = Field(default="medium", description="low, medium or high")
 
 
 class ActionItem(BaseModel):
     description: str = Field(description="What needs to be done")
     owner: Optional[str] = Field(None, description="Person responsible, if mentioned")
     due_date: Optional[str] = Field(None, description="deadline if mentioned, e.g. 'Friday' or '2026-05-13'")
-    priority: str = Field(default="medium", description="low, medium or high")
+    priority: PriorityLevel = Field(default="medium", description="low, medium or high")
     risks: list[Risk] = Field(default_factory=list, description="Risks specifically related with this action item")
 
 
@@ -44,6 +56,13 @@ class MeetingExtraction(BaseModel):
     decisions: list[Decision] = Field(default_factory=list)
     general_risks: list[Risk] = Field(default_factory=list, description="Risks that affect all project/meeting")
     participants: list[str] = Field(default_factory=list, description="Names of people who spoke or attand the meeting")
+
+    @field_validator("summary")
+    @classmethod
+    def summary_not_empty(cls, v: str) -> str:
+        if not v or not v.strip():
+            raise ValueError("Summary cannot be empty")
+        return v
 
 
 # What we send back too user

@@ -1,0 +1,71 @@
+{
+  "timestamp": "2026-05-21T12:01:29.223609",
+  "overall_score": 100,
+  "avg_latency_seconds": 5.33,
+  "results": [
+    {
+      "id": "eval_001_clear_commitments",
+      "score": 100,
+      "latency": 9.87,
+      "checks": {
+        "action_items_min_count": true,
+        "action_item_owners": true,
+        "decisions_min_count": true,
+        "decision_keywords": true,
+        "general_risks_min_count": true,
+        "participants": true,
+        "summary_length": true
+      }
+    },
+    {
+      "id": "eval_002_no_decisions",
+      "score": 100,
+      "latency": 3.0,
+      "checks": {
+        "action_items_min_count": true,
+        "action_item_owners": true,
+        "decisions_min_count": true,
+        "general_risks_min_count": true,
+        "participants": true,
+        "summary_length": true
+      }
+    },
+    {
+      "id": "eval_003_high_severity_risk",
+      "score": 100,
+      "latency": 7.81,
+      "checks": {
+        "action_items_min_count": true,
+        "action_item_owners": true,
+        "decisions_min_count": true,
+        "general_risks_min_count": true,
+        "has_high_severity_risk": true,
+        "participants": true,
+        "summary_length": true
+      }
+    },
+    {
+      "id": "eval_004_no_hypotheticals",
+      "score": 100,
+      "latency": 3.64,
+      "checks": {
+        "action_items_max_count": true,
+        "action_item_owners": true,
+        "decisions_max_count": true,
+        "participants": true,
+        "summary_length": true
+      }
+    },
+    {
+      "id": "eval_005_no_false_consensus",
+      "score": 100,
+      "latency": 2.33,
+      "checks": {
+        "action_item_owners": true,
+        "decisions_max_count": true,
+        "participants": true,
+        "summary_length": true
+      }
+    }
+  ]
+}
