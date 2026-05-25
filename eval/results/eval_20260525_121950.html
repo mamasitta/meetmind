@@ -1,0 +1,1662 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>MeetMind Eval Report</title>
+<style>
+  * { margin:0;padding:0;box-sizing:border-box }
+  body { font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;
+          background:linear-gradient(135deg,#667eea,#764ba2);padding:20px }
+  .wrap { max-width:1400px;margin:0 auto }
+  .stat { background:white;padding:24px;border-radius:12px;text-align:center;box-shadow:0 2px 4px rgba(0,0,0,.1) }
+  .val  { font-size:2.2em;font-weight:bold;background:linear-gradient(135deg,#667eea,#764ba2);
+           -webkit-background-clip:text;-webkit-text-fill-color:transparent }
+  .lbl  { color:#666;margin-top:6px }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <div style="background:white;padding:36px;border-radius:16px;text-align:center;margin-bottom:28px;box-shadow:0 4px 6px rgba(0,0,0,.1)">
+    <h1 style="font-size:2.2em;background:linear-gradient(135deg,#667eea,#764ba2);-webkit-background-clip:text;-webkit-text-fill-color:transparent">
+      MeetMind Eval Report
+    </h1>
+    <p style="color:#888;margin-top:6px">2026-05-25 12:19:50 &nbsp;|&nbsp; claude-sonnet-4-6</p>
+  </div>
+
+  <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:16px;margin-bottom:28px">
+    <div class="stat"><div class="val">97.4%</div><div class="lbl">Overall Score</div></div>
+    <div class="stat"><div class="val">97.4%</div><div class="lbl">Weighted Score</div></div>
+    <div class="stat"><div class="val">25/25</div><div class="lbl">Tests Passed</div></div>
+    <div class="stat"><div class="val">233/240</div><div class="lbl">Checks Passed</div></div>
+    <div class="stat"><div class="val">8.9s</div><div class="lbl">Avg Latency</div></div>
+  </div>
+
+  
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_001_clear_commitments</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Clear action items with owners, one decision, nested risk</span>
+                </div>
+                <div style="font-weight:bold">100.0% (11/11) &nbsp; 4.49s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Tom'] &nbsp;|&nbsp; Actual: ['Tom']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['migrate', 'plan'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: ['PostgreSQL'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Sarah', 'Tom'] &nbsp;|&nbsp; Actual: ['Sarah', 'Tom']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=20 chars &nbsp;|&nbsp; Actual: 279 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_keywords</strong><br>
+                Expected: ['migrate', 'PostgreSQL', 'staging'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_action_risk</strong><br>
+                Expected: risks nested inside action items &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team agreed to migrate the database by end of month, with Tom leading the effort and delivering a plan by Wednesday. The group also decided to switch from MySQL to PostgreSQL going forward, though the lack of a staging environment poses a potential blocker for the migration.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_002_no_decisions</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Simple standup — action items only, no decisions, no risks</span>
+                </div>
+                <div style="font-weight:bold">100.0% (12/12) &nbsp; 2.53s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Manager', 'Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['Manager', 'Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=20 chars &nbsp;|&nbsp; Actual: 154 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Brief standup where Alice reported completing the auth module and Bob is still working on the dashboard, expected done today. No blockers were identified.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#fff3cd;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_003_high_severity_risk_general</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Critical general risk should be extracted with high severity</span>
+                </div>
+                <div style="font-weight:bold">83.3% (10/12) &nbsp; 4.94s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#f8d7da;border-left:3px solid #dc3545">
+                <strong>❌ general_risks_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_max</strong><br>
+                Expected: <=1 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Dev'] &nbsp;|&nbsp; Actual: ['Dev']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['write', 'known', 'issues', 'document'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: ['ship', 'launch', 'bugs'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#f8d7da;border-left:3px solid #dc3545">
+                <strong>❌ general_risk_keywords</strong><br>
+                Expected: ['payment', 'bug', 'transactions'] &nbsp;|&nbsp; Actual: missing: ['payment', 'bug', 'transactions']<br>
+                <small>keywords not found: ['payment', 'bug', 'transactions']</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['CEO', 'Dev'] &nbsp;|&nbsp; Actual: ['CEO', 'Dev']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=20 chars &nbsp;|&nbsp; Actual: 230 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_keywords</strong><br>
+                Expected: ['launch', 'payment', 'bug', 'document'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_high_severity_risk</strong><br>
+                Expected: at least one high severity risk &nbsp;|&nbsp; Actual: 2 found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The CEO decided to launch next Friday despite 3 known open bugs, choosing to patch post-launch. Dev was assigned to document the known issues by Thursday, with a critical concern that the payment bug could break user transactions.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_004_no_hypotheticals</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Hypothetical statements should NOT become action items</span>
+                </div>
+                <div style="font-weight:bold">100.0% (11/11) &nbsp; 2.36s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 195 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Team briefly discussed the possibility of database refactoring but reached no consensus or commitment, agreeing to stay focused on the current sprint rather than planning future refactoring work.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_005_no_false_consensus</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Disagreement without resolution should not produce a decision</span>
+                </div>
+                <div style="font-weight:bold">100.0% (9/9) &nbsp; 3.2s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 156 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_keywords</strong><br>
+                Expected: ['defer', 'next', 'week'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Team discussed React vs Vue for their project but reached no consensus, with Bob disagreeing on performance grounds. The decision was deferred to next week.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_006_action_item_with_nested_risk_high</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Risk nested inside action item with high severity</span>
+                </div>
+                <div style="font-weight:bold">100.0% (11/11) &nbsp; 4.2s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 2<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_max</strong><br>
+                Expected: <=2 &nbsp;|&nbsp; Actual: 2<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['John'] &nbsp;|&nbsp; Actual: ['John', 'John']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['deploy', 'rollback'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['PM', 'John'] &nbsp;|&nbsp; Actual: ['PM', 'John']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=20 chars &nbsp;|&nbsp; Actual: 235 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_action_risk</strong><br>
+                Expected: risks nested inside action items &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">John was assigned to deploy the payment API by Friday. A critical risk was identified around database migration potentially causing payment downtime, and John committed to preparing rollback scripts by Thursday as a mitigation measure.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_007_decision_with_nested_risk_medium</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Risk nested inside decision with medium severity</span>
+                </div>
+                <div style="font-weight:bold">100.0% (10/10) &nbsp; 5.3s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_max</strong><br>
+                Expected: <=2 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['CTO'] &nbsp;|&nbsp; Actual: ['CTO']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['training', 'schedule'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: ['migrate', 'Heroku', 'AWS'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['CTO', 'Sarah'] &nbsp;|&nbsp; Actual: ['CTO', 'Sarah']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=20 chars &nbsp;|&nbsp; Actual: 242 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_decision_risk</strong><br>
+                Expected: risks nested inside decisions &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team has decided to migrate from Heroku to AWS, with plans to monitor costs and schedule AWS training for the team after the migration is complete. Key risks identified include potential cost overruns and the team's need for AWS training.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_008_multiple_risks_all_types</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">General risk + action nested risk + decision nested risk simultaneously</span>
+                </div>
+                <div style="font-weight:bold">100.0% (11/11) &nbsp; 6.37s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=2 &nbsp;|&nbsp; Actual: 2<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Dev Lead'] &nbsp;|&nbsp; Actual: ['Dev Lead', 'Dev Lead']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['certificate', 'renew', 'training', 'session'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: ['Kubernetes', 'scaling'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: ['SSL', 'certificate', 'expires'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['CEO', 'Dev Lead', 'CTO'] &nbsp;|&nbsp; Actual: ['CEO', 'Dev Lead', 'CTO']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=30 chars &nbsp;|&nbsp; Actual: 289 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_action_risk</strong><br>
+                Expected: risks nested inside action items &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_decision_risk</strong><br>
+                Expected: risks nested inside decisions &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team confirmed a Q3 launch on June 1st, decided to use Kubernetes for scaling, and assigned the Dev Lead to renew the SSL certificate by May 25th and set up a K8s training session. Key risks include SSL certificate expiration before launch and the team's lack of Kubernetes experience.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_009_low_severity_risk</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Low severity risk should be extracted as low</span>
+                </div>
+                <div style="font-weight:bold">100.0% (9/9) &nbsp; 3.34s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Bob'] &nbsp;|&nbsp; Actual: ['Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['update', 'documentation', 'wiki'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: ['outdated', 'wiki'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=15 chars &nbsp;|&nbsp; Actual: 165 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_low_severity_risk</strong><br>
+                Expected: at least one low severity risk &nbsp;|&nbsp; Actual: 1 found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team discussed updating the documentation. Bob acknowledged the wiki is outdated but still usable, and committed to updating it next month when he has free time.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_010_multiple_owners_one_action</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Multiple people assigned to same action item</span>
+                </div>
+                <div style="font-weight:bold">100.0% (8/8) &nbsp; 19.66s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=2 &nbsp;|&nbsp; Actual: 2<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_max</strong><br>
+                Expected: <=2 &nbsp;|&nbsp; Actual: 2<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['login', 'frontend', 'backend'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['PM', 'Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['PM', 'Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=15 chars &nbsp;|&nbsp; Actual: 113 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">PM assigned Alice and Bob to fix the login page by Friday, with Alice handling frontend and Bob handling backend.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_011_action_item_without_owner</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Action item mentioned but owner unclear - should NOT extract</span>
+                </div>
+                <div style="font-weight:bold">100.0% (7/7) &nbsp; 3.64s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_exact</strong><br>
+                Expected: 0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 148 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Alice and Bob discussed the need to restart the server today, but no specific person committed to the task and no decision was reached on ownership.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#fff3cd;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_012_ambiguous_due_date</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Weak commitment with vague due date - extract as risk not action</span>
+                </div>
+                <div style="font-weight:bold">87.5% (7/8) &nbsp; 15.71s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_exact</strong><br>
+                Expected: 0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#f8d7da;border-left:3px solid #dc3545">
+                <strong>❌ general_risk_keywords</strong><br>
+                Expected: ['deadline', 'uncertain', 'report'] &nbsp;|&nbsp; Actual: missing: ['deadline']<br>
+                <small>keywords not found: ['deadline']</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Boss', 'Employee'] &nbsp;|&nbsp; Actual: ['Boss', 'Employee']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 156 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Boss requested the report be finished soon, possibly by end of week. The employee responded with a weak commitment, indicating uncertainty about completion.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_013_risk_mentioned_multiple_times</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Same risk mentioned repeatedly should not duplicate</span>
+                </div>
+                <div style="font-weight:bold">100.0% (8/8) &nbsp; 11.6s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_max</strong><br>
+                Expected: <=2 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: ['migration', 'fail'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Alice', 'Bob', 'Carol'] &nbsp;|&nbsp; Actual: ['Alice', 'Bob', 'Carol']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 173 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team discussed a critical database migration risk, with multiple participants acknowledging its severity. Carol suggested documenting the risk once to avoid duplication.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_014_risk_with_implicit_mitigation</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Risk mentioned with solution should still extract risk</span>
+                </div>
+                <div style="font-weight:bold">100.0% (8/8) &nbsp; 10.61s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Dev'] &nbsp;|&nbsp; Actual: ['Dev']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['caching', 'implement'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: ['rate', 'limited', 'API'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['PM', 'Dev'] &nbsp;|&nbsp; Actual: ['PM', 'Dev']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 147 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team identified an API rate-limiting risk and agreed to address it by implementing caching. Dev committed to implementing caching by Wednesday.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_015_no_participants_mentioned</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Transcript with anonymous speakers - extract risks and actions</span>
+                </div>
+                <div style="font-weight:bold">100.0% (10/10) &nbsp; 11.58s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Speaker 2'] &nbsp;|&nbsp; Actual: ['Speaker 2']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['deploy'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Speaker 1', 'Speaker 2'] &nbsp;|&nbsp; Actual: ['Speaker 1', 'Speaker 2']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 129 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_keywords</strong><br>
+                Expected: ['deploy', 'risk', 'server'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_action_risk</strong><br>
+                Expected: risks nested inside action items &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Speaker 2 committed to handling a deployment needed today, with a risk identified that the server might crash during the process.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_016_empty_transcript</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Empty or whitespace-only transcript</span>
+                </div>
+                <div style="font-weight:bold">100.0% (12/12) &nbsp; 10.17s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_max</strong><br>
+                Expected: <=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>none expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=0 chars &nbsp;|&nbsp; Actual: 67 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">No meeting transcript was provided. There is no content to analyze.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_017_very_long_transcript</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Long transcript with many speakers and items</span>
+                </div>
+                <div style="font-weight:bold">92.3% (12/13) &nbsp; 15.94s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=5 &nbsp;|&nbsp; Actual: 5<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_max</strong><br>
+                Expected: <=6 &nbsp;|&nbsp; Actual: 5<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 0<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#f8d7da;border-left:3px solid #dc3545">
+                <strong>❌ general_risks_zero_enforced</strong><br>
+                Expected: 0 &nbsp;|&nbsp; Actual: 1<br>
+                <small>expected zero general_risks</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Tom', 'Alice', 'Bob', 'Carol', 'Dave'] &nbsp;|&nbsp; Actual: ['Tom', 'Alice', 'Bob', 'Carol', 'Dave']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Sarah', 'Tom', 'Alice', 'Bob', 'Carol', 'Dave'] &nbsp;|&nbsp; Actual: ['Sarah', 'Tom', 'Alice', 'Bob', 'Carol', 'Dave']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=40 chars &nbsp;|&nbsp; Actual: 300 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_high_severity_risk</strong><br>
+                Expected: at least one high severity risk &nbsp;|&nbsp; Actual: 2 found<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_action_risk</strong><br>
+                Expected: risks nested inside action items &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team reviewed five workstreams: database migration, API documentation, security audit, frontend redesign, and testing setup. Owners were assigned to each task, with key risks identified around data loss during migration, auditor availability, and the absence of a staging environment for testing.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_018_risk_severity_inference_from_words</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Severity inferred correctly from urgency words without explicit 'high'</span>
+                </div>
+                <div style="font-weight:bold">100.0% (10/10) &nbsp; 3.89s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=2 &nbsp;|&nbsp; Actual: 2<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: ['blocking', 'failing', 'outdated'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Dev', 'PM'] &nbsp;|&nbsp; Actual: ['Dev', 'PM']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=15 chars &nbsp;|&nbsp; Actual: 199 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_keywords</strong><br>
+                Expected: ['critical', 'minor', 'outdated'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_high_severity_risk</strong><br>
+                Expected: at least one high severity risk &nbsp;|&nbsp; Actual: 1 found<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_low_severity_risk</strong><br>
+                Expected: at least one low severity risk &nbsp;|&nbsp; Actual: 1 found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The meeting identified a critical blocking issue with the build failing, preventing all merges, with PM escalating it as an immediate fix. A minor concern about outdated documentation was also noted.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_019_decision_made_by_multiple</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Decision made by group consensus with implied action item</span>
+                </div>
+                <div style="font-weight:bold">100.0% (8/8) &nbsp; 15.85s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no owners expected</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: ['Python', 'upgrade'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Team', 'PM'] &nbsp;|&nbsp; Actual: ['Team', 'PM']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 135 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_keywords</strong><br>
+                Expected: ['Python', 'upgrade', 'decision'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team unanimously agreed to upgrade to Python 3.12 by June 1st. The decision was formally confirmed by the PM with a clear deadline.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_020_action_item_with_implicit_date</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Due date implied but not explicitly stated</span>
+                </div>
+                <div style="font-weight:bold">100.0% (8/8) &nbsp; 2.44s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Employee'] &nbsp;|&nbsp; Actual: ['Employee']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['slides', 'prepare'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Boss', 'Employee'] &nbsp;|&nbsp; Actual: ['Boss', 'Employee']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 133 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ due_date_extracted</strong><br>
+                Expected: at least one due date &nbsp;|&nbsp; Actual: ['Monday']<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team discussed an upcoming client presentation on Monday. The Employee committed to preparing the slides before the presentation.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#fff3cd;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_021_cross_referenced_risk</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Risk that relates to both decision and action item</span>
+                </div>
+                <div style="font-weight:bold">83.3% (10/12) &nbsp; 21.59s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decisions_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=0 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#f8d7da;border-left:3px solid #dc3545">
+                <strong>❌ general_risks_zero_enforced</strong><br>
+                Expected: 0 &nbsp;|&nbsp; Actual: 1<br>
+                <small>expected zero general_risks</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Dev Lead'] &nbsp;|&nbsp; Actual: ['Dev Lead']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['CTO', 'Dev Lead'] &nbsp;|&nbsp; Actual: ['CTO', 'Dev Lead']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=15 chars &nbsp;|&nbsp; Actual: 159 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_action_risk</strong><br>
+                Expected: risks nested inside action items &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#f8d7da;border-left:3px solid #dc3545">
+                <strong>❌ has_nested_decision_risk</strong><br>
+                Expected: risks nested inside decisions &nbsp;|&nbsp; Actual: none<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">The team decided to use a microservices architecture, with the Dev Lead assigned to implement retry logic to address network latency concerns between services.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_022_malformed_speaker_format</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Transcript with non-standard speaker formatting</span>
+                </div>
+                <div style="font-weight:bold">100.0% (8/8) &nbsp; 2.97s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Bob'] &nbsp;|&nbsp; Actual: ['Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: ['server', 'crash'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 108 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Bob committed to fixing an unspecified issue raised by Alice, with a noted risk that the server might crash.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_023_no_action_keywords</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Commitment without standard keywords</span>
+                </div>
+                <div style="font-weight:bold">100.0% (8/8) &nbsp; 16.97s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Bob'] &nbsp;|&nbsp; Actual: ['Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['optimize', 'database'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Alice', 'Bob'] &nbsp;|&nbsp; Actual: ['Alice', 'Bob']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 78 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ due_date_extracted</strong><br>
+                Expected: at least one due date &nbsp;|&nbsp; Actual: ['EOD']<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Bob committed to optimizing the database by end of day, as requested by Alice.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#fff3cd;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_024_numeric_speakers</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Speakers identified by numbers only</span>
+                </div>
+                <div style="font-weight:bold">87.5% (7/8) &nbsp; 11.95s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['User2'] &nbsp;|&nbsp; Actual: ['User2']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#f8d7da;border-left:3px solid #dc3545">
+                <strong>❌ general_risk_keywords</strong><br>
+                Expected: ['break', 'auth'] &nbsp;|&nbsp; Actual: missing: ['break', 'auth']<br>
+                <small>keywords not found: ['break', 'auth']</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['User1', 'User2'] &nbsp;|&nbsp; Actual: ['User1', 'User2']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 123 chars<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ has_nested_action_risk</strong><br>
+                Expected: risks nested inside action items &nbsp;|&nbsp; Actual: found<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">User2 committed to deploying a fix as requested by User1, with a noted risk that the deployment might break authentication.</pre>
+                
+            </div>
+        </div>
+        <div style="background:white;border-radius:12px;margin-bottom:24px;overflow:hidden;box-shadow:0 2px 8px rgba(0,0,0,.1)">
+            <div style="padding:18px 20px;background:#d4edda;display:flex;justify-content:space-between;align-items:center">
+                <div>
+                    <strong>eval_025_special_characters_in_names</strong>
+                    <span style="color:#555;font-size:.9em;margin-left:10px">Speaker names with special characters</span>
+                </div>
+                <div style="font-weight:bold">100.0% (8/8) &nbsp; 11.72s</div>
+            </div>
+            <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:8px;padding:16px;background:#f8f9fa">
+                
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_items_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risks_min</strong><br>
+                Expected: >=1 &nbsp;|&nbsp; Actual: 1<br>
+                <small></small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ owners</strong><br>
+                Expected: ['Ms. Jones'] &nbsp;|&nbsp; Actual: ['Ms. Jones']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ action_item_keywords</strong><br>
+                Expected: ['update', 'API'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ decision_keywords</strong><br>
+                Expected: None &nbsp;|&nbsp; Actual: None<br>
+                <small>no keywords to validate</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ general_risk_keywords</strong><br>
+                Expected: ['rate', 'limiting'] &nbsp;|&nbsp; Actual: all found<br>
+                <small>all present</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ participants</strong><br>
+                Expected: ['Dr. Smith', 'Ms. Jones', 'Mr. Chen'] &nbsp;|&nbsp; Actual: ['Dr. Smith', 'Ms. Jones', 'Mr. Chen']<br>
+                <small>all found</small>
+            </div>
+            <div style="padding:8px;border-radius:6px;background:#d4edda;border-left:3px solid #28a745">
+                <strong>✅ summary_length</strong><br>
+                Expected: >=10 chars &nbsp;|&nbsp; Actual: 97 chars<br>
+                <small></small>
+            </div>
+            </div>
+            <div style="padding:16px;border-top:1px solid #e0e0e0">
+                <strong style="color:#667eea">Claude's summary</strong>
+                <pre style="background:#2d2d2d;color:#f8f8f2;padding:12px;border-radius:6px;margin-top:8px;white-space:pre-wrap;font-size:.85em">Ms. Jones was assigned to update the API, with a noted risk of rate limiting raised by Dr. Smith.</pre>
+                
+            </div>
+        </div>
+</div>
+</body>
+</html>

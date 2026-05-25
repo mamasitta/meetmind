@@ -1,0 +1,1436 @@
+{
+  "timestamp": "2026-05-25T12:19:50.175321",
+  "model": "claude-sonnet-4-6",
+  "overall_score": 97.35600000000001,
+  "weighted_score": 97.35901639344259,
+  "passed": 25,
+  "total": 25,
+  "avg_latency": 8.9208,
+  "results": [
+    {
+      "id": "eval_001_clear_commitments",
+      "score": 100.0,
+      "passed": true,
+      "latency": 4.49,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "summary_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "has_nested_action_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_002_no_decisions",
+      "score": 100.0,
+      "passed": true,
+      "latency": 2.53,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "action_items_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_003_high_severity_risk_general",
+      "score": 83.3,
+      "passed": true,
+      "latency": 4.94,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": false,
+          "note": ""
+        },
+        {
+          "name": "general_risks_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": false,
+          "note": "keywords not found: ['payment', 'bug', 'transactions']"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "summary_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "has_high_severity_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_004_no_hypotheticals",
+      "score": 100.0,
+      "passed": true,
+      "latency": 2.36,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "action_items_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_005_no_false_consensus",
+      "score": 100.0,
+      "passed": true,
+      "latency": 3.2,
+      "checks": [
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "summary_keywords",
+          "passed": true,
+          "note": "all present"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_006_action_item_with_nested_risk_high",
+      "score": 100.0,
+      "passed": true,
+      "latency": 4.2,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "action_items_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_nested_action_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_007_decision_with_nested_risk_medium",
+      "score": 100.0,
+      "passed": true,
+      "latency": 5.3,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "action_items_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_nested_decision_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_008_multiple_risks_all_types",
+      "score": 100.0,
+      "passed": true,
+      "latency": 6.37,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_nested_action_risk",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_nested_decision_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_009_low_severity_risk",
+      "score": 100.0,
+      "passed": true,
+      "latency": 3.34,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_low_severity_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_010_multiple_owners_one_action",
+      "score": 100.0,
+      "passed": true,
+      "latency": 19.66,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "action_items_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_011_action_item_without_owner",
+      "score": 100.0,
+      "passed": true,
+      "latency": 3.64,
+      "checks": [
+        {
+          "name": "action_items_exact",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_012_ambiguous_due_date",
+      "score": 87.5,
+      "passed": true,
+      "latency": 15.71,
+      "checks": [
+        {
+          "name": "action_items_exact",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": false,
+          "note": "keywords not found: ['deadline']"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_013_risk_mentioned_multiple_times",
+      "score": 100.0,
+      "passed": true,
+      "latency": 11.6,
+      "checks": [
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_014_risk_with_implicit_mitigation",
+      "score": 100.0,
+      "passed": true,
+      "latency": 10.61,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_015_no_participants_mentioned",
+      "score": 100.0,
+      "passed": true,
+      "latency": 11.58,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "summary_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "has_nested_action_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_016_empty_transcript",
+      "score": 100.0,
+      "passed": true,
+      "latency": 10.17,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "action_items_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "none expected"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_017_very_long_transcript",
+      "score": 92.3,
+      "passed": true,
+      "latency": 15.94,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "action_items_max",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_zero_enforced",
+          "passed": false,
+          "note": "expected zero general_risks"
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_high_severity_risk",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_nested_action_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_018_risk_severity_inference_from_words",
+      "score": 100.0,
+      "passed": true,
+      "latency": 3.89,
+      "checks": [
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "summary_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "has_high_severity_risk",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_low_severity_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_019_decision_made_by_multiple",
+      "score": 100.0,
+      "passed": true,
+      "latency": 15.85,
+      "checks": [
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "no owners expected"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "summary_keywords",
+          "passed": true,
+          "note": "all present"
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_020_action_item_with_implicit_date",
+      "score": 100.0,
+      "passed": true,
+      "latency": 2.44,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "due_date_extracted",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_021_cross_referenced_risk",
+      "score": 83.3,
+      "passed": true,
+      "latency": 21.59,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "decisions_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_zero_enforced",
+          "passed": false,
+          "note": "expected zero general_risks"
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_nested_action_risk",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_nested_decision_risk",
+          "passed": false,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_022_malformed_speaker_format",
+      "score": 100.0,
+      "passed": true,
+      "latency": 2.97,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_023_no_action_keywords",
+      "score": 100.0,
+      "passed": true,
+      "latency": 16.97,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "due_date_extracted",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_024_numeric_speakers",
+      "score": 87.5,
+      "passed": true,
+      "latency": 11.95,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": false,
+          "note": "keywords not found: ['break', 'auth']"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "has_nested_action_risk",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    },
+    {
+      "id": "eval_025_special_characters_in_names",
+      "score": 100.0,
+      "passed": true,
+      "latency": 11.72,
+      "checks": [
+        {
+          "name": "action_items_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "general_risks_min",
+          "passed": true,
+          "note": ""
+        },
+        {
+          "name": "owners",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "action_item_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "decision_keywords",
+          "passed": true,
+          "note": "no keywords to validate"
+        },
+        {
+          "name": "general_risk_keywords",
+          "passed": true,
+          "note": "all present"
+        },
+        {
+          "name": "participants",
+          "passed": true,
+          "note": "all found"
+        },
+        {
+          "name": "summary_length",
+          "passed": true,
+          "note": ""
+        }
+      ],
+      "error": null
+    }
+  ]
+}

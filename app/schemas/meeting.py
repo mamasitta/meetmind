@@ -20,7 +20,7 @@ class TranscriptRequest(BaseModel):
         return v
 
 
-    class Config:
+    class ConfigDict:
         json_schema_extra = {
             "example": {
                 "title": "Product sync 12 May",
@@ -72,6 +72,6 @@ class MeetingResponse(BaseModel):
     created_at: datetime
     extraction: MeetingExtraction
 
-    class Config:
+    class ConfigDict:
         from_attributes = True
 

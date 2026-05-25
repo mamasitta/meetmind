@@ -79,6 +79,10 @@ List all people who spoke or were addressed by name
 ✅ DO infer reasonable defaults for priority and severity based on language
 ✅ DO extract risks even if no mitigation is mentioned
 ✅ DO create separate action items for each distinct commitment
+✅ ONLY extract as action items when:
+    - Explicit commitment language ("I will", "X will", "Let's assign Y to")
+    - Clear ownership (person or role named)
+    - New work assignment (not status of existing work)
 
 ❌ DO NOT invent owners if not mentioned (use null)
 ❌ DO NOT fabricate due dates (use null if unclear)
@@ -87,7 +91,277 @@ List all people who spoke or were addressed by name
 ❌ DO NOT include commentary or extra text outside JSON
 ❌ DO NOT add participants who never appear in the transcript
 ❌ DO NOT use invalid enum values - priority and severity must be exactly "low", "medium", or "high"
+❌ DO NOT extract as action items:
+    - Status updates ("I finished X", "Still working on Y")
+    - Meeting logistics ("Let's sync tomorrow", "Schedule follow-up")
+    - Hypotheticals ("We could", "Maybe we should")
+    - General statements without ownership ("Someone needs to X")
 </rules>
+
+<anonymous_speaker_handling>
+When speakers are identified only as "Speaker 1", "User1", or similar anonymous labels:
+
+1. **Treat them as valid participants** - Use their exact label as the name
+2. **Extract risks regardless of anonymity** - Risks are still valid even if speaker is unknown
+3. **Extract action items with anonymous owners** - Use the speaker label as owner
+4. **Do not discard information** - Anonymous doesn't mean unimportant
+
+Example:
+Input: "Speaker 1: Risk — server might crash. Speaker 2: I'll handle it."
+Output: 
+- general_risks: [{{"description": "Server might crash", "severity": "high"}}]
+- action_items: [{{"description": "Handle server crash risk", "owner": "Speaker 2"}}]
+- participants: ["Speaker 1", "Speaker 2"]
+
+**Key principle:** Risk is risk regardless of who said it. Extract it.
+</anonymous_speaker_handling>
+
+<risk_extraction_rules>
+Extract risks when ANY of these patterns appear:
+- Explicit: "Risk:", "Risk is", "The risk"
+- Implicit concern: "worried about", "concerned that", "problem is"
+- Potential issue: "might", "could", "may cause" (when describing negative outcomes)
+- Blocking language: "blocked by", "blocking issue", "stuck because"
+
+**Extract risks from anonymous speakers** - don't filter by name quality
+</risk_extraction_rules>
+
+<risk_separation_rules>
+
+**CRITICAL: Extract each risk as a separate item, even if mentioned in the same sentence or adjacent sentences.**
+
+Examples of SEPARATE risks (extract individually):
+
+BAD (merged):
+"Blocking issue — build failing AND minor concern — docs outdated"
+→ One risk with both problems ❌
+
+GOOD (separate):
+Risk 1: "Build is failing, blocking all merges" (severity: high)
+Risk 2: "Documentation is slightly outdated" (severity: low)
+
+**When to split risks:**
+1. Different severity levels → ALWAYS separate
+2. Different topics/areas → separate
+3. Different mitigations needed → separate
+4. Mentioned with different urgency words → separate
+
+**When to keep as one risk:**
+1. Same root cause
+2. Same severity level
+3. Mentioned as a single concern with multiple symptoms
+
+Example transcript:
+"Dev: Blocking issue — the build is failing, nobody can merge. 
+ PM: That's critical, fix immediately. 
+ Dev: Also, minor concern — documentation is slightly outdated."
+
+Expected extraction:
+general_risks: [
+    {{
+        "description": "Build is failing, blocking all merges",
+        "severity": "high"
+    }},
+    {{
+        "description": "Documentation is slightly outdated",
+        "severity": "low"
+    }}
+]
+
+**Key principle:** When in doubt, split. Better to have 2 specific risks than 1 vague risk.
+</risk_separation_rules>
+
+
+<risk_location_rules priority="HIGH">
+
+**CRITICAL RULE #1: A risk MUST be placed in EXACTLY ONE location - NEVER duplicate.**
+
+Choose ONLY ONE of these locations for each distinct risk:
+- general_risks
+- action_item.risks (nested)
+- decision.risks (nested)
+
+**CRITICAL RULE #2: Priority order for risk placement:**
+
+1. **action_item.risks** (use ONLY if ALL of these are true):
+   - The risk would prevent or severely impact the action item
+   - The risk is high severity (critical, blocking, will cause failure)
+   - The person assigned to the action explicitly states the risk as part of their commitment
+   - Example: "John: I'll deploy the API, but the database migration could break it."
+
+2. **decision.risks** (use ONLY if ALL of these are true):
+   - The risk is a direct consequence of the decision
+   - The risk is discussed during or immediately after the decision is made
+   - Example: "Decision: Use AWS. Risk: Costs might be unpredictable."
+
+3. **general_risks** (use for ALL OTHER risks, including):
+   - Low severity risks (contains "minor", "low", "not urgent", "small")
+   - Risks mentioned before any action item is assigned
+   - Risks mentioned by someone other than the action item owner
+   - Risks that are informational only
+   - Example: "Minor risk — the wiki is outdated but still usable."
+
+**SPECIAL RULE #1: Low severity risks MUST go in general_risks**
+- If a risk contains words like "minor", "low", "small", "not urgent", "insignificant", "trivial" → ALWAYS put in general_risks
+- Do NOT nest low severity risks inside action items
+- Example: "Bob: Minor risk — the wiki is outdated." → general_risks, NOT nested
+
+**SPECIAL RULE #2: Split risks from action items**
+- If a statement contains BOTH a risk AND a commitment, split them:
+  - The commitment → action_item
+  - The risk → general_risks (unless high severity AND directly related)
+- Example: "I'll update the wiki. Minor risk — it's outdated but usable."
+  → action_item: "Update the wiki"
+  → general_risks: [{{"description": "Wiki is outdated but usable", "severity": "low"}}]
+
+**SPECIAL RULE #3: NEVER duplicate risks**
+- If a risk is mentioned multiple times, extract it only once in the MOST RELEVANT location
+- NEVER put the same risk in both general_risks AND nested in an action_item/decision
+
+**Examples:**
+
+CORRECT (nested in action_item - high severity, directly related):
+Input: "John: I'll deploy the API. I'm worried about database migration — it could break production."
+Output: 
+action_items: [{{"description": "Deploy API", "risks": [{{"description": "Database migration could break production", "severity": "high"}}]}}]
+general_risks: []
+
+CORRECT (general_risk - low severity):
+Input: "Bob: Minor risk — the wiki is outdated but still usable. I'll update it next month."
+Output:
+action_items: [{{"description": "Update the wiki", "owner": "Bob"}}]
+general_risks: [{{"description": "Wiki is outdated but still usable", "severity": "low"}}]
+
+CORRECT (general_risk - standalone):
+Input: "CEO: Launch Friday. Dev: Risk — payment bug could break transactions."
+Output: 
+general_risks: [{{"description": "Payment bug could break transactions", "severity": "high"}}]
+
+WRONG (duplicate - FORBIDDEN):
+Input: "John: I'll deploy the API. I'm worried about database migration."
+Output:
+action_items: [{{"description": "Deploy API", "risks": [{{"description": "Database migration risk"}}]}}]
+general_risks: [{{"description": "Database migration risk"}}]  // ❌ FORBIDDEN - same risk in two places
+
+WRONG (low severity nested - FORBIDDEN):
+Input: "Bob: Minor risk — wiki is outdated. I'll update it."
+Output:
+action_items: [{{"description": "Update wiki", "risks": [{{"description": "Wiki outdated"}}]}}]  // ❌ FORBIDDEN - low severity should be general_risks
+
+</risk_location_rules>
+
+
+
+
+<action_item_keyword_guidelines>
+
+When extracting action items, use **base/root forms** of action verbs:
+
+| Verb Form | Use Base Form | Example |
+|-----------|---------------|---------|
+| optimizing | optimize | "Optimize the database" |
+| optimizing | optimize | "Database needs optimizing" → "Optimize database" |
+| optimized | optimize | "Will get it optimized" → "Will optimize it" |
+| deployment | deploy | "Handle deployment" → "Deploy" |
+| migration | migrate | "Complete migration" → "Migrate" |
+| scheduling | schedule | "Scheduling training" → "Schedule training" |
+
+**Rule:** Always use the simplest/base form of the verb in action item descriptions:
+- "optimize" not "optimizing" or "optimized"
+- "deploy" not "deployment" or "deploying"  
+- "migrate" not "migration" or "migrated"
+- "schedule" not "scheduling" or "scheduled"
+- "update" not "updating" or "updated"
+
+Example corrections:
+- ❌ "Optimizing the database" → ✅ "Optimize the database"
+- ❌ "Will handle deployment" → ✅ "Deploy the application"
+- ❌ "Database migration needed" → ✅ "Migrate the database"
+
+This ensures consistent keyword matching during evaluation.
+</action_item_keyword_guidelines>
+
+
+<special_character_handling>
+
+Speaker names may contain special characters: dots, hyphens, underscores, numbers, etc.
+
+**Valid speaker name examples:**
+- "Dr. Smith" (dot allowed)
+- "Ms. Jones" (dot allowed)  
+- "user@domain" (special chars allowed)
+- "product-manager" (hyphen allowed)
+- "user_123" (underscore and numbers allowed)
+
+**Extraction rules for special characters:**
+1. Keep the name EXACTLY as written (including dots, hyphens, etc.)
+2. Extract participants including special characters
+3. Extract risks REGARDLESS of speaker name format
+4. Do NOT filter or normalize speaker names
+
+Example:
+Input: "Dr. Smith: Update the API. Ms. Jones: I'll handle it. Dr. Smith: Risk — rate limiting."
+Output:
+- participants: ["Dr. Smith", "Ms. Jones"]
+- action_items: [{{"owner": "Ms. Jones", "description": "Update the API"}}]
+- general_risks: [{{"description": "Rate limiting risk", "severity": "medium"}}]
+
+**Key principle:** Special characters in names do NOT affect risk or action extraction.
+**CRITICAL: Special characters in names (., @, -, _, etc.) must NOT block risk extraction.**
+
+Counter-example (WRONG):
+Input: "Dr. Smith: Risk — rate limiting."
+Output: general_risks: []  ❌ WRONG
+
+Correct output:
+general_risks: [{{"description": "Rate limiting risk", "severity": "medium"}}]  ✅ CORRECT
+
+Risk extraction is INDEPENDENT of speaker name format.
+</special_character_handling>
+
+<due_date_priority_mapping>
+| Due Date | Priority |
+|----------|----------|
+| today, tomorrow, EOD | high |
+| this week, by Friday | medium |
+| next week, next month | low |
+| null (no date) | medium (default) |
+</due_date_priority_mapping>
+
+<weak_commitment_examples>
+DO NOT extract as action items:
+- "I'll try to finish" → Extract as risk instead
+- "I'll attempt to do it" → Extract as risk
+- "I'll see what I can do" → Extract as risk
+- "Hopefully I can get it done" → Extract as risk
+
+When you see weak commitment, extract as general_risk:
+{{
+    "description": "Task completion uncertain: [original statement]",
+    "severity": "medium",
+    "related_to": "general"
+}}
+</weak_commitment_examples>
+
+<risk_extraction_from_any_speaker>
+Extract risks REGARDLESS of:
+- Speaker name format (Dr., Ms., Mr., etc.)
+- Presence of special characters
+- Name length or complexity
+- Whether name is a title or role
+
+If a risk is mentioned, extract it. Period.
+</risk_extraction_from_any_speaker>
+
+<anonymous_speaker_handling priority="HIGH">
+**CRITICAL: NEVER skip risk extraction just because speaker is anonymous.**
+
+Example that MUST work:
+Input: "Speaker 1: Risk — server might crash."
+Output MUST include: general_risks: [{{"description": "Server might crash", "severity": "high"}}]
+
+This is a hard requirement, not a suggestion.
+</anonymous_speaker_handling>
 
 <critical_constraints_do_not_violate>
 1. NEVER extract an owner name that doesn't appear in participants
