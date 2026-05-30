@@ -220,3 +220,7 @@ __marimo__/
 
 # Test DB
 test.db
+
+# Qdrant local persistence and runtime state
+.qdrant-initialized
+storage/
