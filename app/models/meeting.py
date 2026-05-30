@@ -29,7 +29,7 @@ class Meeting(Base):
     action_items: Mapped[list["ActionItem"]] = relationship(back_populates="meeting", cascade="all, delete-orphan")
     decisions: Mapped[list["Decision"]] = relationship(back_populates="meeting", cascade="all, delete-orphan")
     risks: Mapped[list["Risk"]] = relationship(back_populates="meeting", cascade="all, delete-orphan")
-    chunks: Mapped[list["MeetingChunk"]] = relationship(back_populates="meeting", cascade="all, delete-orphan")
+    # chunks: Mapped[list["MeetingChunk"]] = relationship(back_populates="meeting", cascade="all, delete-orphan")
 
 
 class ActionItem(Base):
@@ -89,14 +89,14 @@ class Risk(Base):
         back_populates="risks"
     )
 
+# logic moved to qdrant
+# class MeetingChunk(Base):
+#     __tablename__ = "meeting_chunks"
 
-class MeetingChunk(Base):
-    __tablename__ = "meeting_chunks"
+#     id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
+#     meeting_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("meetings.id", ondelete="CASCADE"))
+#     content: Mapped[str] = mapped_column(Text)
+#     chunk_index: Mapped[int] = mapped_column()
+#     embedding: Mapped[Optional[list[float]]] = mapped_column(Vector(1536), nullable=True)
 
-    id: Mapped[uuid.UUID] = mapped_column(UUID(as_uuid=True), primary_key=True, default=uuid.uuid4)
-    meeting_id: Mapped[uuid.UUID] = mapped_column(ForeignKey("meetings.id", ondelete="CASCADE"))
-    content: Mapped[str] = mapped_column(Text)
-    chunk_index: Mapped[int] = mapped_column()
-    embedding: Mapped[Optional[list[float]]] = mapped_column(Vector(1536), nullable=True)
-
-    meeting: Mapped["Meeting"] = relationship(back_populates="chunks")
+#     meeting: Mapped["Meeting"] = relationship(back_populates="chunks")
