@@ -2,7 +2,7 @@ from fastapi import APIRouter, Depends, HTTPException
 from sqlalchemy.ext.asyncio import AsyncSession
 from uuid import UUID
 from app.core.database import get_db
-from app.schemas.meeting import TranscriptRequest, MeetingResponse, MeetingExtraction
+from app.schemas.meeting import TranscriptRequest, MeetingResponse
 from app.services.meeting_db_service import create_meeting, get_meeting_with_all_data
 from app.serializers.meeting_to_response_serializer import meeting_to_response
 

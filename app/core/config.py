@@ -1,4 +1,5 @@
 from pydantic_settings import BaseSettings, SettingsConfigDict
+import os
 
 class Settings(BaseSettings):
     database_url: str
@@ -17,6 +18,8 @@ class Settings(BaseSettings):
     qdrant_url:         str = "http://localhost:6333"
     qdrant_collection:  str = "meetmind_chunks" 
 
+    environment: str = "development"
+
     model_config = SettingsConfigDict(
         env_file=".env",
         env_file_encoding="utf-8"
@@ -24,3 +27,11 @@ class Settings(BaseSettings):
 
 
 settings = Settings()
+
+
+# Helper to get DB URL for Docker vs Local
+def get_database_url():
+    if os.getenv('DOCKER_ENV'):
+        # Inside Docker - use container name
+        return settings.database_url.replace('localhost', 'db').replace('5433', '5432')
+    return settings.database_url

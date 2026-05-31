@@ -1,10 +1,9 @@
 from datetime import datetime
 from typing import Optional
 import uuid
-from sqlalchemy import String, DateTime, Text, ForeignKey, func, Table, JSON
+from sqlalchemy import String, DateTime, Text, ForeignKey, func, JSON
 from sqlalchemy.orm import Mapped, mapped_column, relationship
 from sqlalchemy.dialects.postgresql import UUID
-from pgvector.sqlalchemy import Vector
 from app.core.database import Base
 from app.models.associations import decision_risk_association, action_item_risk_association
 

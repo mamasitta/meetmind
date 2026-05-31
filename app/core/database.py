@@ -1,9 +1,11 @@
 from sqlalchemy.ext.asyncio import create_async_engine, async_sessionmaker, AsyncSession
 from sqlalchemy.orm import DeclarativeBase
-from app.core.config import settings
+from app.core.config import get_database_url
+
+DATABASE_URL = get_database_url()
 
 engine = create_async_engine(
-    settings.database_url,
+    DATABASE_URL,
     # TODO change to False in prod
     echo=False,        # set True during development to see SQL
     pool_size=10,
