@@ -224,3 +224,14 @@ test.db
 # Qdrant local persistence and runtime state
 .qdrant-initialized
 storage/
+
+# Docker
+postgres_data/
+qdrant_data/
+*.log
+
+
+# OS
+.DS_Store
+Thumbs.db
+
