@@ -1,6 +1,6 @@
 import json
 from app.core.config import settings
-from app.schemas.meeting import MeetingExtraction, ActionItem, Decision, Risk
+from app.schemas.meeting import MeetingExtraction
 from app.prompts.extraction_prompts import ExtractionPrompts
 from anthropic import AsyncAnthropic
 
