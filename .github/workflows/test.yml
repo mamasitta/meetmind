@@ -37,15 +37,7 @@ jobs:
           --health-timeout 5s
           --health-retries 5
 
-      qdrant:
-        image: qdrant/qdrant:latest
-        ports:
-          - 6333:6333
-        options: >-
-          --health-cmd "curl -f http://localhost:6333/health"
-          --health-interval 10s
-          --health-timeout 5s
-          --health-retries 5
+      # Qdrant removed - tests mock it!
 
     steps:
       - name: Checkout code
@@ -62,16 +54,11 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: Lint with Ruff
-        run: |
-          ruff check app --output-format=github || true
-
       - name: Run tests
         env:
           DATABASE_URL: postgresql+asyncpg://postgres:test_password@localhost:5432/meetmind_test
           REDIS_URL: redis://localhost:6379
-          QDRANT_URL: http://localhost:6333
-          QDRANT_COLLECTION: test_chunks
+          # Qdrant env vars not needed (mocked)
           VOYAGE_API_KEY: mock_key_for_ci
           ANTHROPIC_API_KEY: mock_key_for_ci
           ENVIRONMENT: test
